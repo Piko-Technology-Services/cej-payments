@@ -47,8 +47,39 @@ export default function checkout() {
     setLoading(false);
   };
 
+  // const verifyPayment = async () => {
+  //   const interval = setInterval(async () => {
+  //     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify-token`, {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ token: data.token }),
+  //     });
+
+  //     const result = await res.json();
+
+  //     if (result.status === 'success') {
+  //       clearInterval(interval);
+  //       setMessage('Payment Successful');
+  //       Swal.fire('Success', result.message, 'success');
+  //       window.location.href = `/success?message=${encodeURIComponent(result.message)}`; // Redirect to success page
+  //     }
+
+  //     if (result.status === 'failed') {
+  //       clearInterval(interval);
+  //       setMessage('Payment Failed');
+  //       Swal.fire('Error', 'Payment failed!' + result.message, 'error');
+  //       window.location.href = '/failure'; // Redirect to failure page
+  //     }
+  //   }, 5000);
+  // };
+
   const verifyPayment = async () => {
+    let attempts = 0;
+    const maxAttempts = 12; // 1 minute total (12 × 5s)
+
     const interval = setInterval(async () => {
+      attempts++;
+
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify-token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -59,19 +90,25 @@ export default function checkout() {
 
       if (result.status === 'success') {
         clearInterval(interval);
-        setMessage('Payment Successful');
         Swal.fire('Success', result.message, 'success');
-        window.location.href = `/success?message=${encodeURIComponent(result.message)}`; // Redirect to success page
+        window.location.href = `/success?message=${encodeURIComponent(result.message)}`;
       }
 
       if (result.status === 'failed') {
         clearInterval(interval);
-        setMessage('Payment Failed');
-        Swal.fire('Error', 'Payment failed!' + result.message, 'error');
-        window.location.href = '/failure'; // Redirect to failure page
+        Swal.fire('Error', result.message, 'error');
+        window.location.href = '/failure';
       }
+
+      // ⛔ Stop after max attempts
+      if (attempts >= maxAttempts) {
+        clearInterval(interval);
+        Swal.fire('Timeout', 'Payment confirmation taking too long. Please check later.', 'warning');
+      }
+
     }, 5000);
-  };
+};
+
 
   if (!data) return null;
 

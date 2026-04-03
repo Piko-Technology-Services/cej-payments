@@ -51,12 +51,6 @@ export default function SuccessPage() {
             Back to Home
           </button>
 
-          <button
-            onClick={() => window.print()}
-            className="w-full border border-gray-300 rounded-lg py-2 hover:bg-gray-100"
-          >
-            Print Receipt
-          </button>
         </div>
       </div>
     </div>

@@ -47,6 +47,7 @@ export default function checkout() {
     setLoading(false);
   };
 
+
   // const verifyPayment = async () => {
   //   const interval = setInterval(async () => {
   //     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify-token`, {
@@ -132,9 +133,11 @@ export default function checkout() {
             <button
               key={m}
               onClick={() => setMethod(m)}
-              className={`p-3 border rounded-lg ${method === m ? 'bg-black text-white' : ''}`}
+              className={`p-3 border rounded-lg font-semibold
+                ${method === m ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-black border-gray-300'}
+              `}
             >
-              {m}
+              {m.charAt(0).toUpperCase() + m.slice(1)}
             </button>
           ))}
         </div>

@@ -3,8 +3,8 @@ const dpoMNOs = [
     country: "zambia",
     code: "+260",
     networks: [
-      { name: "MTN Zambia", mno: "mtn" },
-      { name: "Airtel Zambia", mno: "airtel" },
+      { name: "MTN Zambia", mno: "MTNZM" },
+      { name: "Airtel Zambia", mno: "AIRTELZM" },
       { name: "Zamtel", mno: "zamtel" }
     ]
   },

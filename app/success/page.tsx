@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -8,9 +10,6 @@ export default function SuccessPage() {
   const params = useSearchParams();
 
   const transID = params.get('TransID');
-  const approval = params.get('CCDapproval');
-  const pnrID = params.get('PnrID');
-  const token = params.get('TransactionToken');
   const companyRef = params.get('CompanyRef');
 
   useEffect(() => {
@@ -35,12 +34,9 @@ export default function SuccessPage() {
           Your registration for <strong>EPD2026</strong> has been completed successfully.
         </p>
 
-        {/* 🔥 SHOW TRANSACTION DETAILS */}
-        <div className="bg-gray-50 p-4 rounded-lg text-sm text-left space-y-1">
-          <p><strong>Transaction ID:</strong> {transID}</p>
-          <p><strong>Approval Code:</strong> {approval}</p>
+        <div className="bg-gray-50 p-4 rounded-lg text-sm text-left">
           <p><strong>Reference:</strong> {companyRef}</p>
-          <p><strong>PNR ID:</strong> {pnrID}</p>
+          <p><strong>Transaction ID:</strong> {transID}</p>
         </div>
 
         <div className="space-y-3">

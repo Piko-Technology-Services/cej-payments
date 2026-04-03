@@ -1,16 +1,19 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-// import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function SuccessPage() {
   const router = useRouter();
-  // const params = useSearchParams();
-  // const message = params.get('message');
+  const params = useSearchParams();
+
+  const transID = params.get('TransID');
+  const approval = params.get('CCDapproval');
+  const pnrID = params.get('PnrID');
+  const token = params.get('TransactionToken');
+  const companyRef = params.get('CompanyRef');
 
   useEffect(() => {
-    // Optional: clear stored token after success
     localStorage.removeItem('token');
   }, []);
 
@@ -18,29 +21,28 @@ export default function SuccessPage() {
     <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl text-center space-y-6">
 
-        {/* Icon */}
         <div className="flex justify-center">
           <div className="w-20 h-20 flex items-center justify-center rounded-full bg-green-100">
             <span className="text-4xl">✅</span>
           </div>
         </div>
 
-        {/* Title */}
         <h1 className="text-2xl font-semibold text-green-700">
           Payment Successful
         </h1>
 
-        {/* Message */}
         <p className="text-gray-600">
           Your registration for <strong>EPD2026</strong> has been completed successfully.
         </p>
 
-        {/* Extra Info */}
-        <p className="text-sm text-gray-500">
-          A confirmation email and ticket will be sent to your email shortly.
-        </p>
+        {/* 🔥 SHOW TRANSACTION DETAILS */}
+        <div className="bg-gray-50 p-4 rounded-lg text-sm text-left space-y-1">
+          <p><strong>Transaction ID:</strong> {transID}</p>
+          <p><strong>Approval Code:</strong> {approval}</p>
+          <p><strong>Reference:</strong> {companyRef}</p>
+          <p><strong>PNR ID:</strong> {pnrID}</p>
+        </div>
 
-        {/* Actions */}
         <div className="space-y-3">
           <button
             onClick={() => router.push('/')}

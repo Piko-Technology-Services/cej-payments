@@ -38,6 +38,7 @@ export default function checkout() {
 
     if (result.payment_url) { 
       window.location.href = result.payment_url;
+      verifyPayment();
     } else {
       Swal.fire('Info', result.message, 'info');
       setMessage('Check your phone to approve payment');
@@ -76,7 +77,7 @@ export default function checkout() {
 
   const verifyPayment = async () => {
     let attempts = 0;
-    const maxAttempts = 12; // 1 minute total (12 × 5s)
+    const maxAttempts = 25; // 5 minutes total (12 × 5s)
 
     const interval = setInterval(async () => {
       attempts++;

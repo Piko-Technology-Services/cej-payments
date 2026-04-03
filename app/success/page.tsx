@@ -2,12 +2,12 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 
 export default function SuccessPage() {
   const router = useRouter();
-  const params = useSearchParams();
-  const message = params.get('message');
+  // const params = useSearchParams();
+  // const message = params.get('message');
 
   useEffect(() => {
     // Optional: clear stored token after success

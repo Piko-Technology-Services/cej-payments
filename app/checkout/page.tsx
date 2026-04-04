@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 export default function checkout() {
   const [data, setData] = useState<any>(null);
-  const [method, setMethod] = useState('card');
+  const [method, setMethod] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
@@ -220,8 +220,8 @@ export default function checkout() {
           </div>
         )}
 
-        <button onClick={handlePay} className="btn" disabled={loading}>
-          {loading ? 'Processing...' : 'Pay Now'}
+        <button onClick={handlePay} className="btn w-full py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg  flex justify-center items-center" disabled={loading}>
+          {loading ? <div className="animate-spin rounded-full h-8 w-8 border-b-5 border-white-900"></div> : 'Pay Now'}
         </button>
 
         {message && <p className="text-center text-sm">{message}</p>}

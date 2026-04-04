@@ -38,7 +38,37 @@ body {
 .btn {
   width: 100%;
   padding: 12px;
-  background: black;
+  /* background: rgb(0, 148, 37); */
   color: white;
   border-radius: 8px;
+}
+
+.btn:hover {
+  background: rgb(255, 174, 0);
+} 
+
+/* iOS / Safari form override */
+input,
+textarea,
+select {
+  -webkit-appearance: none;      /* Remove iOS default style */
+  -webkit-text-fill-color: #111; /* Text color */
+  color: #111;                    /* Fallback text color */
+  background-color: #fff;         /* Ensure visible background */
+  border-color: #ccc;             /* Standard border */
+  box-shadow: none !important;    /* Remove inner iOS shadow */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888;                     /* Make placeholders visible */
+  opacity: 1;                       /* Ensure full opacity on iOS */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #2563eb;           /* Tailwind blue-600 focus */
+  box-shadow: 0 0 0 1px #2563eb;   /* Optional focus ring */
 }

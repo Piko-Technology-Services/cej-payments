@@ -123,9 +123,9 @@ export default function checkout() {
           <img src="https://cejzambia.org/wp-content/uploads/2023/01/High-Resolution4-1-768x799.png" alt="EPD2026 Logo" className="h-20" />
         </div>
 
-        <h1 className="text-2xl font-semibold text-center">Checkout</h1>
+        <h1 className="text-2xl font-semibold text-center text-gray-800">Checkout</h1>
 
-        <div className="bg-gray-100 p-4 rounded-xl text-center">
+        <div className="bg-gray-100 p-4 rounded-xl text-center text-gray-700">
           <p>{data.product}</p>
           <p className="text-xl font-bold">ZMW {data.amount}</p>
         </div>

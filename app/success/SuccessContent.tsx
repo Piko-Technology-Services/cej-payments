@@ -98,7 +98,7 @@ export default function SuccessContent() {
         <div className="space-y-3">
           <button
             onClick={() => router.push('/')}
-            className="btn w-full"
+            className="btn w-full text-white bg-green-600 hover:bg-green-700"
           >
             Back to Home
           </button>

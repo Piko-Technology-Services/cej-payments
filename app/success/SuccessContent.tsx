@@ -10,10 +10,65 @@ export default function SuccessContent() {
   const transID = params.get('TransID');
   const companyRef = params.get('CompanyRef');
   const approval = params.get('CCDapproval');
+  const token = params.get('TransactionToken');
+
+  const retryVerification = (token: string) => {
+    let attempts = 0;
+
+    const interval = setInterval(async () => {
+      attempts++;
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify-token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      });
+
+      const result = await res.json();
+
+      if (result.status === 'success') {
+        clearInterval(interval);
+        console.log('Payment confirmed');
+      }
+
+      if (attempts >= 10) {
+        clearInterval(interval);
+        console.warn('Verification timeout');
+      }
+
+    }, 5000);
+  };
+
+  const verifyPayment = async (token: string) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify-token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      });
+
+      const result = await res.json();
+
+      if (result.status !== 'success') {
+        console.warn('Payment not confirmed yet, retrying...');
+        retryVerification(token);
+      }
+
+    } catch (error) {
+      console.error('Verification error', error);
+    }
+  };
+
 
   useEffect(() => {
     localStorage.removeItem('token');
-  }, []);
+
+    if (token) {
+      verifyPayment(token);
+    }
+  }, [token]);
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">

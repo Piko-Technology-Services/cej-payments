@@ -37,8 +37,8 @@ export default function checkout() {
     console.log('Response from charge-token API: ' + JSON.stringify(result));
 
     if (result.payment_url) { 
-      window.location.href = result.payment_url;
       verifyPayment();
+      window.location.href = result.payment_url;
     } else {
       Swal.fire('Info', result.message, 'info');
       setMessage('Check your phone to approve payment');

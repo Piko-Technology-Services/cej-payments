@@ -38,6 +38,7 @@ export default function checkout() {
 
     if (result.payment_url) { 
       verifyPayment();
+      Swal.fire('Info', 'Redirecting to Card payment page...', 'info');
       window.location.href = result.payment_url;
     } else {
       Swal.fire('Info', result.message, 'info');

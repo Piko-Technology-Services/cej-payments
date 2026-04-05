@@ -164,16 +164,16 @@ const slides = [
             <img src="https://cejzambia.org/wp-content/uploads/2023/01/High-Resolution4-1-768x799.png" alt="EPD2026 Logo" className="h-20" />
           </div>
 
-          <h1 className="text-2xl font-semibold text-center">Register for EPD2026</h1>
+          <h1 className="text-2xl font-semibold text-center text-gray-800">Register for EPD2026</h1>
 
           
 
 
           {form.ticketPackage && (
             <div className="bg-gray-50 border-l-4 border-blue-500 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-semibold">{ticketDetails[form.ticketPackage].title}</h2>
+              <h2 className="text-lg font-semibold text-gray-800">{ticketDetails[form.ticketPackage].title}</h2>
               <p className="text-sm text-gray-700 mt-1">{ticketDetails[form.ticketPackage].description}</p>
-              <p className="mt-2 font-medium">{ticketDetails[form.ticketPackage].currency} {ticketDetails[form.ticketPackage].price}</p>
+              <p className="mt-2 font-medium text-gray-800">{ticketDetails[form.ticketPackage].currency} {ticketDetails[form.ticketPackage].price}</p>
             </div>
           )}
 

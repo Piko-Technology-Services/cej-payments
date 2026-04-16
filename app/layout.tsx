@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Centre for Environment Justice (CEJ)" }],
 
   icons: {
-    icon: "/cej-logo.png",
-    shortcut: "/cej-logo.png",
-    apple: "/cej-logo.png", // your logo
+    icon: "./cej-logo.png",
+    shortcut: "./cej-logo.png",
+    apple: "./cej-logo.png", 
   },
 
   openGraph: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "EPD2026",
     images: [
       {
-        url: "/epd (5).jpeg", // 🔥 your banner image
+        url: "./epd (5).jpeg", // 🔥 your banner image
         width: 1200,
         height: 630,
         alt: "EPD2026 Conference Banner",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "EPD2026 – Register Now",
     description:
       "Be part of Zambia’s leading environmental dialogue. Register for EPD2026 today.",
-    images: ["/epd (5).jpeg"],
+    images: ["./epd (5).jpeg"],
   },
 
   robots: {
@@ -83,6 +83,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      
       <body className="min-h-full flex flex-col">
         
         {/* 🔥 Global Header with Logo */}

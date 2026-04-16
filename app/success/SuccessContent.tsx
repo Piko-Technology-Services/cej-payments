@@ -92,7 +92,7 @@ export default function SuccessContent() {
 
         {/* TRANSACTION DETAILS */}
         <div className="overflow-x-auto bg-gray-50 p-4 rounded-lg text-sm">
-          <table className="w-full text-left">
+          <table className="w-full text-gray-600 text-left">
             <thead className="bg-gray-100">
               <tr>
           {/* <th className="px-4 py-2 font-medium">Field</th>

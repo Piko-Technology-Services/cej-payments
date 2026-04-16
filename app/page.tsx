@@ -43,7 +43,7 @@ const slides = [
   },
   {
     title: 'Objectives of the Dialogue',
-    text: 'Promote safe tailings dam design, strengthen regulations, encourage community engagement, and ensure environmental sustainability.',
+    text: '1. Showcase best practices in tailings dam design and construction\n 2. Lobby for stronger tailings dam regulatory frameworks\n 3. Strengthen collaboration between government, private sector, and CSOs\n 4. Engage with communities and traditional leadership\n 5. Mobilize resources to implement EPD resolutions.',
     image: './epd (5).jpeg',
   },
   {
@@ -57,7 +57,7 @@ const slides = [
   useEffect(() => {
     const interval = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
@@ -144,11 +144,14 @@ const slides = [
 
         {/* Left Slide Section */}
 
-        <div className="md:w-1/2 bg-gradient-to-br from-orange-500 via-yellow-400 to-green-900 text-white p-5 flex flex-col justify-center relative">
+        <div className="md:w-1/2 bg-green-900 text-white p-5 flex flex-col justify-center relative">
           <div className="text-center space-y-4">
             <img src={slides[slideIndex].image} alt={slides[slideIndex].title} className="w-full h-60 mx-auto rounded-lg object-cover shadow-lg" />
             <h2 className="text-3xl font-bold">{slides[slideIndex].title}</h2>
-            <p className="text-lg mt-2">{slides[slideIndex].text}</p>
+            {/* <p className="text-lg mt-2">{slides[slideIndex].text}</p> */}
+            <p className="text-lg mt-2 whitespace-pre-line">
+            {slides[slideIndex].text}
+          </p>
           </div>
           {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {slides.map((_, i) => (
@@ -229,7 +232,7 @@ const slides = [
               <option value="Print Media">Print Media</option>
             </select>
 
-            <button className="btn w-full py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg flex justify-center items-center" disabled={loading}>
+            <button className="btn w-full py-3 text-white bg-green-900 hover:bg-green-900 rounded-lg flex justify-center items-center" disabled={loading}>
               {loading ? <div className="animate-spin rounded-full h-8 w-8 border-b-5 border-white-900"></div> : 'Continue to Registration'}
             </button>
           </form>

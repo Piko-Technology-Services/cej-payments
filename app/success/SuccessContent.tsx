@@ -149,7 +149,7 @@ export default function SuccessContent() {
 
              <button
             onClick={() => window.print()}
-            className="w-full border border-gray-300 rounded-lg py-2 hover:bg-gray-100"
+            className="w-full border text-gray-700 border-gray-300 rounded-lg py-2 hover:bg-gray-100"
           >
             Print Receipt
           </button>

@@ -91,43 +91,47 @@ export default function SuccessContent() {
 
 
         {/* TRANSACTION DETAILS */}
-        <div className="overflow-x-auto bg-gray-50 p-4 rounded-lg text-sm">
+
+        {companyRef && transID && approval && token && (
+          <div className="overflow-x-auto bg-gray-50 p-4 rounded-lg text-sm">
           <table className="w-full text-gray-600 text-left">
             <thead className="bg-gray-100">
               <tr>
-          {/* <th className="px-4 py-2 font-medium">Field</th>
+                {/* <th className="px-4 py-2 font-medium">Field</th>
           <th className="px-4 py-2 font-medium">Value</th> */}
               </tr>
             </thead>
             <tbody>
               <tr className="border-t border-gray-200">
-          <td className="px-4 py-2">Reference</td>
-          <td className="px-4 py-2">{companyRef}</td>
+                <td className="px-4 py-2">Reference</td>
+                <td className="px-4 py-2">{companyRef}</td>
               </tr>
               <tr className="border-t border-gray-200">
-          <td className="px-4 py-2">Transaction ID</td>
-          <td className="px-4 py-2">{transID}</td>
+                <td className="px-4 py-2">Transaction ID</td>
+                <td className="px-4 py-2">{transID}</td>
               </tr>
               <tr className="border-t border-gray-200">
-          <td className="px-4 py-2">Approval</td>
-          <td className="px-4 py-2">{approval}</td>
+                <td className="px-4 py-2">Approval</td>
+                <td className="px-4 py-2">{approval}</td>
               </tr>
               <tr className="border-t border-gray-200">
-          <td className="px-4 py-2">Token</td>
-          <td className="px-4 py-2">{token}</td>
+                <td className="px-4 py-2">Token</td>
+                <td className="px-4 py-2">{token}</td>
               </tr>
             </tbody>
           </table>
         </div>
+        )}
+        
 
-                <div className="alert background-green-50 border-l-4 border-orange-400 p-4 text-left">
+        <div className="alert background-green-50 border-l-4 border-orange-400 p-4 text-left">
           <p className="text-sm text-gray-700">An email will be sent to your inbox with the receipt and details of your registration.
             <br />
             Please keep this receipt for your records. If you have any questions.
             <br />
             <br />
             <b>Contact support at:</b>
-            
+
             <br />
             epd@cejzambia.org | +260 954 713003.
           </p>

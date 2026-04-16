@@ -133,7 +133,7 @@ export default function SuccessContent() {
             <b>Contact support at:</b>
 
             <br />
-            epd@cejzambia.org | +260 954 713003.
+            epd@cejzambia.org | +260 966 762 215 | +260 977 123 413
           </p>
         </div>
 
@@ -145,12 +145,18 @@ export default function SuccessContent() {
             Back to Home
           </button>
 
-          <button
+          {companyRef && transID && approval && token && (
+
+             <button
             onClick={() => window.print()}
             className="w-full border border-gray-300 rounded-lg py-2 hover:bg-gray-100"
           >
             Print Receipt
           </button>
+
+          )}
+
+         
         </div>
       </div>
     </div>

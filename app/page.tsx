@@ -83,14 +83,14 @@ const slides = [
       price: '2,500',
       currency: 'ZMW',
       description:
-        'General participation with contribution towards EPD Implementation Strategy Framework.',
+        'This ticket is intended for general participants who are in a position to contribute towards their participation and the cost of the event. Contributions will also go towards the EPD Implementation Strategy Framework. Delegates will receive a golf T-shirt.',
     },
     Corporate: {
       title: 'Corporate Ticket',
       price: '4,000',
       currency: 'ZMW',
       description:
-        'VIP experience with exclusive gifts and seating for corporate delegates.',
+        'This ticket is intended for participants who are able to contribute towards their participation and the cost of the event. Contributions will also go towards the EPD Implementation Strategy Framework. Delegates will receive a corporate shirt and seating in the VIP section.',
     },
   };
 
@@ -126,7 +126,7 @@ const slides = [
       const data = await res.json();
       if (data.token) {
         localStorage.setItem('token', JSON.stringify({ ...form, token: data.token }));
-        Swal.fire('Success', 'Token created successfully! Redirecting to checkout...', 'success');
+        Swal.fire('Please Wait', 'Redirecting to checkout...', 'info');
         router.push('/checkout');
       } else {
         Swal.fire('Error', 'Failed to create token: ' + data.message, 'error');

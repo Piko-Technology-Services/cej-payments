@@ -99,7 +99,7 @@ const slides = [
     setForm((prev) => {
       const updated = { ...prev, [name]: value };
       if (name === 'ticketPackage') {
-        updated.amount = value === 'Standard' ? '1' : value === 'Corporate' ? '1' : '';
+        updated.amount = value === 'Standard' ? '2500' : value === 'Corporate' ? '4000' : '';
         updated.product = value ? `EPD2026 - ${value} Ticket` : 'EPD2026';
       }
       return updated;
